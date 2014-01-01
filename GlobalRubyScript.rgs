@@ -1,0 +1,55 @@
+HKCR
+{
+	'.rb' = s 'RubyScriptFile'
+	RubyScriptFile = s 'RubyScript File'
+	{
+		DefaultIcon = s '%MODULE%'
+		ScriptEngine = s 'GlobalRubyScript'
+		Shell = s ''
+		{
+			Open1 = s 'Run(&R)'
+			{
+				Command = s 'CScript.exe "%%1" %%*'
+			}
+			Open2 = s 'Run with WScript(&W)'
+			{
+				Command = s 'WScript.exe "%%1" %%*'
+			}
+			Edit = s 'Edit(&E)'
+			{
+				Command = s 'Notepad.exe "%%1"'
+			}
+		}
+	}
+
+	GlobalRubyScript.1.9 = s 'RubyScript Language (1.9.1 global)'
+	{
+		CLSID = s '{0A383007-32FE-4EC0-97D6-59892ECD5413}'
+		OLEScript = s ''
+	}
+	GlobalRubyScript = s 'RubyScript Language (1.9.1 global)'
+	{
+		CLSID = s '{0A383007-32FE-4EC0-97D6-59892ECD5413}'
+		CurVer = s 'GlobalRubyScript.1.9'
+		OLEScript = s ''
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0A383007-32FE-4EC0-97D6-59892ECD5413} = s 'RubyScript Language (1.9.1 global)'
+		{
+			ProgID = s 'GlobalRubyScript.1.9'
+			OLEScript = s ''
+			'Implemented Categories' = s ''
+			{
+				{F0B7A1A1-9847-11CF-8F20-00805F2CD064} = s ''
+				{F0B7A1A2-9847-11CF-8F20-00805F2CD064} = s ''
+			}
+			VersionIndependentProgID = s 'GlobalRubyScript'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{474067DF-D9CE-4324-9D3F-E81F8E011AD1}'
+		}
+	}
+}

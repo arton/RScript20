@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RScript", "RScript.vcxproj", "{86B397BA-A0E2-ED5F-82FF-A27F727877E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Debug|x64-ruby20 = Debug|x64-ruby20
+		Release MinDependency|Win32 = Release MinDependency|Win32
+		Release MinDependency|x64 = Release MinDependency|x64
+		Release MinDependency|x64-ruby20 = Release MinDependency|x64-ruby20
+		Release MinSize|Win32 = Release MinSize|Win32
+		Release MinSize|x64 = Release MinSize|x64
+		Release MinSize|x64-ruby20 = Release MinSize|x64-ruby20
+		Ruby2.1 Unicode RelMinDependency|Win32 = Ruby2.1 Unicode RelMinDependency|Win32
+		Ruby2.1 Unicode RelMinDependency|x64 = Ruby2.1 Unicode RelMinDependency|x64
+		Ruby2.1 Unicode RelMinDependency|x64-ruby20 = Ruby2.1 Unicode RelMinDependency|x64-ruby20
+		Unicode 64 Release Mindependency|Win32 = Unicode 64 Release Mindependency|Win32
+		Unicode 64 Release Mindependency|x64 = Unicode 64 Release Mindependency|x64
+		Unicode 64 Release Mindependency|x64-ruby20 = Unicode 64 Release Mindependency|x64-ruby20
+		Unicode Debug|Win32 = Unicode Debug|Win32
+		Unicode Debug|x64 = Unicode Debug|x64
+		Unicode Debug|x64-ruby20 = Unicode Debug|x64-ruby20
+		Unicode Release MinDependency|Win32 = Unicode Release MinDependency|Win32
+		Unicode Release MinDependency|x64 = Unicode Release MinDependency|x64
+		Unicode Release MinDependency|x64-ruby20 = Unicode Release MinDependency|x64-ruby20
+		Unicode Release MinSize|Win32 = Unicode Release MinSize|Win32
+		Unicode Release MinSize|x64 = Unicode Release MinSize|x64
+		Unicode Release MinSize|x64-ruby20 = Unicode Release MinSize|x64-ruby20
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|Win32.Build.0 = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|x64.ActiveCfg = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|x64.Build.0 = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|x64-ruby20.ActiveCfg = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Debug|x64-ruby20.Build.0 = Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|Win32.ActiveCfg = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|Win32.Build.0 = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|x64.ActiveCfg = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|x64.Build.0 = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|x64-ruby20.ActiveCfg = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinDependency|x64-ruby20.Build.0 = Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|Win32.ActiveCfg = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|Win32.Build.0 = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|x64.ActiveCfg = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|x64.Build.0 = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|x64-ruby20.ActiveCfg = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Release MinSize|x64-ruby20.Build.0 = Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Ruby2.1 Unicode RelMinDependency|Win32.ActiveCfg = Ruby2.1 Unicode RelMinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Ruby2.1 Unicode RelMinDependency|Win32.Build.0 = Ruby2.1 Unicode RelMinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Ruby2.1 Unicode RelMinDependency|x64.ActiveCfg = Ruby2.1 Unicode RelMinDependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Ruby2.1 Unicode RelMinDependency|x64.Build.0 = Ruby2.1 Unicode RelMinDependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Ruby2.1 Unicode RelMinDependency|x64-ruby20.ActiveCfg = Ruby2.1 Unicode RelMinDependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|Win32.ActiveCfg = Unicode 64 Release Mindependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|Win32.Build.0 = Unicode 64 Release Mindependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|x64.ActiveCfg = Unicode 64 Release Mindependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|x64.Build.0 = Unicode 64 Release Mindependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|x64-ruby20.ActiveCfg = Unicode 64 Release Mindependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode 64 Release Mindependency|x64-ruby20.Build.0 = Unicode 64 Release Mindependency|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|Win32.ActiveCfg = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|Win32.Build.0 = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|x64.ActiveCfg = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|x64.Build.0 = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|x64-ruby20.ActiveCfg = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Debug|x64-ruby20.Build.0 = Unicode Debug|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|Win32.ActiveCfg = Unicode Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|Win32.Build.0 = Unicode Release MinDependency|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|x64.ActiveCfg = Unicode Release MinDependency 64|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|x64.Build.0 = Unicode Release MinDependency 64|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|x64-ruby20.ActiveCfg = Unicode Release MinDependency 64|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinDependency|x64-ruby20.Build.0 = Unicode Release MinDependency 64|x64
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|Win32.ActiveCfg = Unicode Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|Win32.Build.0 = Unicode Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|x64.ActiveCfg = Unicode Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|x64.Build.0 = Unicode Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|x64-ruby20.ActiveCfg = Unicode Release MinSize|Win32
+		{86B397BA-A0E2-ED5F-82FF-A27F727877E8}.Unicode Release MinSize|x64-ruby20.Build.0 = Unicode Release MinSize|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

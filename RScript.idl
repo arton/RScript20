@@ -1,0 +1,131 @@
+/*
+ *  Copyright(c) 2000, 2009 arton
+ *
+ *  You may distribute under the terms of either the GNU General Public
+ *  License
+ *
+ *  $Date: 2006-11-15 12:49:36 +0900 (水, 15 11 2006) $
+ */
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "activscp.idl";
+
+#if defined(RUBY_2_1)
+#define CLSID_RUBYSCRIPT uuid(5FAA1692-10F7-4208-9E0B-92753C3F6D4C)
+#define CLSID_RUBYWRAPPER uuid(8DA7117D-882E-4E29-889C-F31BED9D78CC)
+#define CLSID_RUBYIZE uuid(CB567E39-E753-4A60-A924-EE1C1538A971)
+#else
+#define CLSID_RUBYSCRIPT uuid(5C876DC5-499E-444D-8CBE-E4F7B4CF34D5)
+#define CLSID_RUBYWRAPPER uuid(38DBE621-054C-4a2e-A993-2B05CECFCB71)
+#define CLSID_RUBYIZE uuid(275E45EA-C1BD-44A2-90CC-9F3ABFDFD213)
+#endif
+
+[
+	object,
+	uuid(1AEE0BE2-04AC-11d4-8EA8-0000F45A3C05),
+	pointer_default(unique)
+]
+interface IRubyEngine : IUnknown
+{
+	HRESULT CreateObject([in]CLSID clsid, [in, string]LPCWSTR pszHost, [in]REFIID riid, [out]IUnknown** ppv);
+	HRESULT CheckInterfaceIsSafety([in]CLSID clsid, [in]IUnknown* pUnk);
+	HRESULT CheckActiveXIsSafety([in]CLSID clsid);
+	HRESULT EnterScript();
+	HRESULT LeaveScript();
+	HRESULT OnScriptError([in]IActiveScriptError* pError);
+	HRESULT RegisterServiceProvider([in]IServiceProvider* pProvider);
+	HRESULT UnregisterServiceProvider();
+	HRESULT GetSecurityLevel([out, retval]long* pResult);
+	HRESULT ClearModuleObject();
+	HRESULT SetRubyize([in]boolean f);
+	HRESULT GetRubyize();
+	HRESULT GetModule([out, retval]unsigned long* pResult);
+	HRESULT DisconnectObjects();
+	HRESULT DefineGlobalObject();
+};
+
+[
+	object,
+	uuid(66D56EE1-0249-11D4-8EA4-0000F45A3C05),
+	helpstring("IRubyWrapper Interface"),
+	pointer_default(unique)
+]
+interface IRubyWrapper : IUnknown
+{
+	HRESULT rb_intern([in, string]char* name, [out]unsigned long* pid);
+	HRESULT rb_module_new([in]unsigned long parent, [out]unsigned long* p);
+	HRESULT SearchMethod([in]unsigned long val, [in, string]char* pName, [out]DISPID* pDispID);
+	HRESULT rb_invoke([in]IRubyEngine* pengine, [in]unsigned long Module, [in]unsigned long func, [in]DISPPARAMS* pDispParams, [in, out, unique]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
+	HRESULT SearchClass([in, string]char* pName, [out]unsigned long* pval);
+	HRESULT rb_funcall_with_string2([in]IRubyEngine* pengine, [in]unsigned long val, [in]unsigned long id, [in]long line, [in]long cb, [in, size_is(cb)]char* p, [in]boolean TraceRequired, [out]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
+	HRESULT RegisterObject([in, string]char* pName, [in]unsigned long Module);
+	HRESULT UnregisterObject([in, string]char* pName, [in]unsigned long Module);
+	HRESULT Disconnect([in]IRubyEngine* pengin);
+	HRESULT DefineGlobalObject([in]IRubyEngine* pengine);
+	HRESULT DefineConstant([in, string]char* pName, [in]unsigned long Module, [in]VARIANT* pVar, [in]IRubyEngine* pengine);
+};
+
+[
+	uuid(821EF766-A6ED-48AD-A791-20B6F7E09239),
+	version(2.0),
+	helpstring("RScript 2.0")
+]
+library RSCRIPTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		object,
+		uuid(5DBEF577-E278-11D3-8E7A-0000F45A3C05),
+		dual,
+		helpstring("IRubyScript Interface"),
+		pointer_default(unique)
+	]
+	interface IRubyScript : IDispatch
+	{
+	};
+
+	[
+		object,
+		uuid(0A4CBEBD-C46B-4A7C-A1E2-AD474C330C7A),
+		dual,
+		helpstring("rubyize other scripting object"),
+		pointer_default(unique)
+	]
+	interface IRubyize : IDispatch
+	{
+		[id(1), propget] HRESULT Version([out, retval]BSTR* pVersion);
+		[id(2), propget] HRESULT RubyVersion([out, retval]BSTR* pVersion);
+		[id(10)] HRESULT rubyize([in]VARIANT val, [out, retval]VARIANT* pObj);
+		[id(11)] HRESULT erubyize([in]BSTR script, [out, retval]VARIANT* pObj);
+	};
+
+	[
+		CLSID_RUBYSCRIPT,
+		helpstring("RubyScript Language (module)")
+	]
+	coclass RubyScript
+	{
+		[default] interface IActiveScript;
+	};
+
+	[
+		CLSID_RUBYWRAPPER,
+		helpstring("RubyWrapper Class"),
+		noncreatable
+	]
+	coclass RubyWrapper
+	{
+		[default] interface IRubyWrapper;
+	};
+	[
+		CLSID_RUBYIZE,
+		helpstring("Rubyize Class")
+	]
+	coclass Rubyize
+	{
+		[default] interface IRubyize;
+	};
+};
