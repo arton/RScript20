@@ -5,7 +5,7 @@
  The original sciprt is written by M. Suketa for vruby as soleb.rb
  -->
 
-<script language="RubyScript.1.9">
+<script language="RubyScript.2.1">
 class OLEINFO
   @members = []
   def typelibs
@@ -146,7 +146,8 @@ def make_list(a)
 end
 
 def init_info
-  Window.document.getElementById('footer').innerHTML = "powerd by Ruby #{RUBY_VERSION}"
+  ri = WIN32OLE.new('ruby.object.2.1')
+  Window.document.getElementById('footer').innerHTML = "powerd by #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
   @oleinfo = OLEINFO.new
   @current_typelib = nil
   Window.document.getElementById('tlibinfo').innerHTML = make_list(@oleinfo.typelibs)
