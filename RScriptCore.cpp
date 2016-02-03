@@ -326,7 +326,7 @@ void CRScriptCore::DefineGlobalMethods(LPCSTR pObjName)
 VALUE CRScriptCore::eval_string(char* p, int cb)
 {
 	VALUE module = Qnil;
-	CRubyWrapper::GetCWrapper()->GetCurrentEngine()->GetModule((DWORD*)&module);
+	CRubyWrapper::GetCWrapper()->GetCurrentEngine()->GetModule(reinterpret_cast<PUINT_PTR>(&module));
         VALUE args[] = { rb_str_new(p, cb), rb_str_new("ActiveScriptRuby", 16), INT2NUM(1) };
         return rb_obj_instance_eval(3, args, module);
 }

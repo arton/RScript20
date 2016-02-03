@@ -462,7 +462,7 @@ VALUE CRScriptCore::ole_createWin32OleEx(IUnknown* pUnk, IRubyEngine* pEngine, I
 #ifdef __IRubyWrapper_INTERFACE_DEFINED__
 	_ASSERT(pEngine);
 	VALUE module;
-	pEngine->GetModule((DWORD*)&module);
+	pEngine->GetModule(reinterpret_cast<PUINT_PTR>(&module));
 	CRubyWrapper* pWrapper = CRubyWrapper::GetCWrapper();
 	IDispatchEx* pDispEx;
 	if (pProv && pUnk->QueryInterface(IID_IDispatchEx, (void**)&pDispEx) == S_OK)
@@ -684,7 +684,7 @@ VALUE __cdecl CRScriptCore::fole_s_new(int argc, VALUE* argv, VALUE self)
 	if (pEngine)
 	{
 		VALUE module;
-		pEngine->GetModule((DWORD*)&module);
+		pEngine->GetModule(reinterpret_cast<PUINT_PTR>(&module));
 		pWrapper->AddOle(module, pole);
 		pole->pEngine = pEngine;
 		if (pDispatchEx)
@@ -795,7 +795,7 @@ VALUE __cdecl CRScriptCore::fole_s_connect(VALUE self, VALUE svr_name)
 	if (pEngine)
 	{
 		VALUE module;
-		pEngine->GetModule((DWORD*)&module);
+		pEngine->GetModule(reinterpret_cast<PUINT_PTR>(&module));
 		CRubyWrapper::GetCWrapper()->AddOle(module, pole);
 	}
 #endif	

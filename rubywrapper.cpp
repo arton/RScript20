@@ -122,7 +122,7 @@ CRubyWrapper* CRubyWrapper::GetCWrapper()
 //////////////////////////////////////////////////////////////////////////
 HRESULT STDMETHODCALLTYPE CRubyWrapper::rb_intern( 
             /* [string][in] */ unsigned char __RPC_FAR *name,
-            /* [out] */ unsigned long __RPC_FAR *pid)
+            /* [out] */ unsigned __int3264 __RPC_FAR *pid)
 {
 	*pid = ::rb_intern(reinterpret_cast<char*>(name));
 	return S_OK;
@@ -143,8 +143,8 @@ static VALUE method_missing(int argc, VALUE* argv, VALUE self)
 }
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::rb_module_new( 
-            /* [in] */ unsigned long parent,
-            /* [out] */ unsigned long __RPC_FAR *p)
+            /* [in] */ unsigned __int3264 parent,
+            /* [out] */ unsigned __int3264 *p)
 {
 	*p = ::rb_module_new();
         ::rb_define_singleton_method(*p, "method_missing", reinterpret_cast<VALUE(*)(...)>(method_missing), -1);
@@ -171,9 +171,9 @@ static VALUE safe_funcall(VALUE Args)
 }
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::SearchMethod( 
-			/* [in] */ unsigned long val,
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [out] */ DISPID __RPC_FAR *pDispID)
+            /* [in] */ unsigned __int3264 val,
+            /* [string][in] */ unsigned char *pName,
+            /* [out] */ DISPID *pDispID)
 {
 	ATLTRACE(_T("CRubyWrapper::SearchMethod = %hs\n"), pName);
 
@@ -191,7 +191,7 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::SearchMethod(
 			v = rb_sym_to_s(v);
                 }
 		char* pmname = StringValuePtr(v);
-		if (stricmp(reinterpret_cast<char*>(pName), pmname) == 0)
+		if (_stricmp(reinterpret_cast<char*>(pName), pmname) == 0)
 		{
 			*(pDispID) = ::rb_intern(pmname);
 			break;
@@ -208,8 +208,8 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::SearchMethod(
 
 // search specified object
 HRESULT STDMETHODCALLTYPE CRubyWrapper::SearchClass( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [out] */ unsigned long __RPC_FAR *pval)
+            /* [string][in] */ unsigned char *pName,
+            /* [out] */ unsigned __int3264 *pval)
 {
     try
     {
@@ -236,15 +236,15 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::SearchClass(
 // The evaluation itself is insecur but, the string always uses a thead that set safelevel > 2,
 // so, the evaluation itself is did by safelevel = 0 setting.
 HRESULT STDMETHODCALLTYPE CRubyWrapper::rb_funcall_with_string2( 
-            /* [in] */ IRubyEngine __RPC_FAR *pengine,
-            /* [in] */ unsigned long val,
-            /* [in] */ unsigned long id,
+            /* [in] */ IRubyEngine *pengine,
+            /* [in] */ unsigned __int3264 val,
+            /* [in] */ unsigned __int3264 id,
             /* [in] */ long line,
             /* [in] */ long cb,
-            /* [size_is][in] */ unsigned char __RPC_FAR *pstr,
+            /* [size_is][in] */ unsigned char *pstr,
             /* [in] */ boolean TraceRequired,
-            /* [out] */ VARIANT __RPC_FAR *pVarResult,
-            /* [out] */ IActiveScriptError __RPC_FAR *__RPC_FAR *ppError)
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ IActiveScriptError **ppError)
 {
 	IRubyEngine* pSavedEngine = m_pCurrentEngine;
 	m_pCurrentEngine = pengine;
@@ -302,16 +302,16 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::rb_funcall_with_string2(
 }
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::RegisterObject( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module)
+            /* [string][in] */ unsigned char *pName,
+            /* [in] */ unsigned __int3264 Module)
 {
 	rb_hash_aset(m_valList, rb_str_new2(reinterpret_cast<LPSTR>(pName)), Module);
 	return S_OK;
 }
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::UnregisterObject( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module)
+            /* [string][in] */ unsigned char *pName,
+            /* [in] */ unsigned __int3264 Module)
 {
 	for (OleListIter it = m_listOle.begin(); it != m_listOle.end();)
 	{
@@ -336,12 +336,12 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::UnregisterObject(
 }
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::rb_invoke( 
-            /* [in] */ IRubyEngine* pengine,
-            /* [in] */ unsigned long module,
-            /* [in] */ unsigned long func,
-            /* [out][in] */ DISPPARAMS __RPC_FAR *pDispParams,
-            /* [out] */ VARIANT __RPC_FAR *pVarResult,
-            /* [out] */ IActiveScriptError __RPC_FAR *__RPC_FAR *ppError)
+            /* [in] */ IRubyEngine *pengine,
+            /* [in] */ unsigned __int3264 module,
+            /* [in] */ unsigned __int3264 func,
+            /* [in] */ DISPPARAMS *pDispParams,
+            /* [unique][out][in] */ VARIANT *pVarResult,
+            /* [out] */ IActiveScriptError **ppError)
 {
 	if (m_fTracing)
 		CRScriptCore::TraceOff();
@@ -420,7 +420,7 @@ HRESULT STDMETHODCALLTYPE CRubyWrapper::DefineGlobalObject(
 
 HRESULT STDMETHODCALLTYPE CRubyWrapper::DefineConstant( 
             /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module,
+            /* [in] */ unsigned __int3264 Module,
             /* [in] */ VARIANT __RPC_FAR *pVar,
             /* [in] */ IRubyEngine __RPC_FAR *pengine)
 {

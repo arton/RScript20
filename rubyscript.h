@@ -97,7 +97,7 @@ public:
 	HRESULT STDMETHODCALLTYPE GetRubyize( void);
 
 	HRESULT STDMETHODCALLTYPE GetModule( 
-            /* [retval][out] */ unsigned long __RPC_FAR *pResult);
+            /* [retval][out] */ unsigned __int3264 *pResult);
 
 	HRESULT STDMETHODCALLTYPE DisconnectObjects( void);
 
@@ -135,8 +135,8 @@ protected:
 	virtual void DefineConstant(LPOLESTR, VARIANT*);
 	inline ID intern(char* p)
 	{
-		unsigned long id;
-		m_pWrapper->rb_intern(reinterpret_cast<unsigned char*>(p), &id);
+		ID id;
+		m_pWrapper->rb_intern(reinterpret_cast<unsigned char*>(p), reinterpret_cast<PUINT_PTR>(&id));
 		return (ID)id;
 	}
 	inline void setModule(VALUE v) { m_valueModule = v; }

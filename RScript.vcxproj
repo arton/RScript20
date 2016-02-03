@@ -25,6 +25,14 @@
       <Configuration>Release MinSize</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Ruby 2.2 Unicode RelMinDependency|Win32">
+      <Configuration>Ruby 2.2 Unicode RelMinDependency</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Ruby 2.2 Unicode RelMinDependency|x64">
+      <Configuration>Ruby 2.2 Unicode RelMinDependency</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Ruby2.1 Unicode RelMinDependency|Win32">
       <Configuration>Ruby2.1 Unicode RelMinDependency</Configuration>
       <Platform>Win32</Platform>
@@ -92,6 +100,12 @@
     <CharacterSet>Unicode</CharacterSet>
     <UseOfAtl>Static</UseOfAtl>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
@@ -111,6 +125,12 @@
     <UseOfAtl>Static</UseOfAtl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
@@ -195,6 +215,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
@@ -208,6 +232,10 @@
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
   </ImportGroup>
@@ -322,6 +350,12 @@
     <LinkIncremental>false</LinkIncremental>
     <TargetName>$(ProjectName)21</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">
+    <OutDir>.\Release22UMinDependency\</OutDir>
+    <IntDir>.\Release22UMinDependency\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)22</TargetName>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">
     <OutDir>.\ReleaseUMinDependency\</OutDir>
     <IntDir>.\ReleaseUMinDependency\</IntDir>
@@ -344,7 +378,13 @@
     <OutDir>.\ReleaseUMinDependency64\</OutDir>
     <IntDir>.\ReleaseUMinDependency64\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)19</TargetName>
+    <TargetName>$(ProjectName)21</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">
+    <OutDir>.\ReleaseUMinDependency64\</OutDir>
+    <IntDir>.\ReleaseUMinDependency64\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)21</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">
     <OutDir>.\ReleaseUMinDependency64\</OutDir>
@@ -574,7 +614,7 @@ echo Windows 9x doesn%27t register Unicode DLL
       <WarningLevel>Level3</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\arton\Documents\include\ruby-1.9.1\i386-mswin32_100;C:\users\arton\include\RUBY-1.9.1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\arton\Documents\include\ruby-2.1.0\i386-mswin32_100;C:\users\arton\include\RUBY-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;_MERGE_PROXYSTUB;IMPORT;NT;MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Debug\RScript.pch</PrecompiledHeaderOutputFile>
@@ -602,10 +642,10 @@ echo Windows 9x doesn%27t register Unicode DLL
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>Debug/RScript19.dll</OutputFile>
+      <OutputFile>Debug/RScript21.dll</OutputFile>
       <ImportLibrary>.\Debug\RScript19.lib</ImportLibrary>
-      <AdditionalLibraryDirectories>C:\home\ruby\lib;c:\home\ruby-1.9\usr\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>msvcr100-ruby191.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\arton\Documents\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>msvcr100-ruby210.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>1.0</Version>
       <ModuleDefinitionFile>.\RScript.def</ModuleDefinitionFile>
     </Link>
@@ -960,7 +1000,7 @@ echo Windows 9x doesn%27t register Unicode DLL
       <ProgramDataBaseFileName>.\Release21UMinDependency\</ProgramDataBaseFileName>
     </ClCompile>
     <Midl>
-      <TypeLibraryName>Release21UMinDependency\RScript.tlb</TypeLibraryName>
+      <TypeLibraryName>Release21UMinDependency\RScript21.tlb</TypeLibraryName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TargetEnvironment>Win32</TargetEnvironment>
       <CPreprocessOptions>
@@ -983,6 +1023,66 @@ echo Windows 9x doesn%27t register Unicode DLL
       <ImportLibrary>.\Release21UMinDependency\RScript21.lib</ImportLibrary>
       <AdditionalLibraryDirectories>C:\home\ruby-2.1.0-x86\usr\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>msvcr100-ruby210.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.0</Version>
+      <ModuleDefinitionFile>.\RScript.def</ModuleDefinitionFile>
+      <Profile>false</Profile>
+    </Link>
+    <CustomBuildStep>
+      <Command>if "%OS%"=="" goto NOTNT 
+if not "%OS%"=="Windows_NT" goto NOTNT 
+copy "$(TargetPath)" c:\home\ruby-2.1.0-x86\usr\bin 
+regsvr32 /s /c "c:\home\ruby-2.1.0-x86\usr\bin\RScript21.dll" 
+echo regsvr32 exec. time &gt; "$(OutDir)regsvr32.trg" 
+goto end 
+:NOTNT 
+echo Windows 9x doesn%27t register Unicode DLL 
+:end </Command>
+      <Message>Registering</Message>
+      <Outputs>$(OutDir)\regsvr32.trg;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>C:\home\ruby-2.2.0-x86\usr\include\ruby-2.2.0\i386-mswin32_100;C:\home\ruby-2.2.0-x86\usr\include\RUBY-2.2.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RUBY_2_2;NDEBUG;TARGET_IS_NT40_OR_LATER;WIN32;_WINDOWS;_USRDLL;_MERGE_PROXYSTUB;IMPORT;NT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release21UMinDependency\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release21UMinDependency\RScript.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release21UMinDependency\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release21UMinDependency\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>Release21UMinDependency\RScript21.tlb</TypeLibraryName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <CPreprocessOptions>
+      </CPreprocessOptions>
+      <PreprocessorDefinitions>RUBY_2_2</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release21UMinDependency\RScript.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>Release22UMinDependency/RScript22.dll</OutputFile>
+      <ImportLibrary>.\Release21UMinDependency\RScript21.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>C:\home\ruby-2.2.0-x86\usr\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>msvcr100-ruby220.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>1.0</Version>
       <ModuleDefinitionFile>.\RScript.def</ModuleDefinitionFile>
       <Profile>false</Profile>
@@ -1173,13 +1273,15 @@ echo Windows 9x doesn%27t register Unicode DLL
       <Optimization>MinSpace</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Users\arton\64\include\ruby-1.9.1\x64-mswin64_100;C:\users\arton\64\include\RUBY-1.9.1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;TARGET_IS_NT40_OR_LATER;WIN32;_WINDOWS;_USRDLL;_MERGE_PROXYSTUB;IMPORT;NT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\arton\64\include\ruby-2.1.0\x64-mswin64_100;C:\users\arton\64\include\RUBY-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RUBY_2_1;_CRT_SECURE_NO_WARNINGS;NDEBUG;TARGET_IS_NT40_OR_LATER;WIN32;_WINDOWS;_USRDLL;_MERGE_PROXYSTUB;IMPORT;NT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Midl>
-      <TypeLibraryName>.\ReleaseUMinDependency\RScript.tlb</TypeLibraryName>
+      <TypeLibraryName>.\ReleaseUMinDependency64\RScript21.tlb</TypeLibraryName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
+      <PreprocessorDefinitions>RUBY_2_1</PreprocessorDefinitions>
+      <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ResourceCompile>
       <Culture>0x0411</Culture>
@@ -1194,7 +1296,58 @@ echo Windows 9x doesn%27t register Unicode DLL
       <LinkDLL>true</LinkDLL>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>C:\users\arton\64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>msvcr100-ruby191.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64-msvcr100-ruby210.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.0</Version>
+      <ModuleDefinitionFile>.\RScript.def</ModuleDefinitionFile>
+      <Profile>false</Profile>
+    </Link>
+    <CustomBuildStep>
+      <Command>if "%OS%"=="" goto NOTNT 
+if not "%OS%"=="Windows_NT" goto NOTNT 
+copy "$(TargetPath)" c:\home\ruby-1.9\usr\bin 
+regsvr32 /s /c "c:\home\ruby-1.9\usr\bin\RScript19.dll" 
+echo regsvr32 exec. time &gt; "$(OutDir)regsvr32.trg" 
+goto end 
+:NOTNT 
+echo Windows 9x doesn%27t register Unicode DLL 
+:end </Command>
+      <Message>Registering</Message>
+      <Outputs>$(OutDir)\regsvr32.trg;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>C:\Users\arton\64\include\ruby-2.1.0\x64-mswin64_100;C:\users\arton\64\include\RUBY-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RUBY_2_1;_CRT_SECURE_NO_WARNINGS;NDEBUG;TARGET_IS_NT40_OR_LATER;WIN32;_WINDOWS;_USRDLL;_MERGE_PROXYSTUB;IMPORT;NT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\ReleaseUMinDependency64\RScript21.tlb</TypeLibraryName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <PreprocessorDefinitions>RUBY_2_1</PreprocessorDefinitions>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\ReleaseUMinDependency\RScript.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\users\arton\64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>x64-msvcr100-ruby210.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>1.0</Version>
       <ModuleDefinitionFile>.\RScript.def</ModuleDefinitionFile>
       <Profile>false</Profile>
@@ -1339,6 +1492,8 @@ echo Windows 9x doesn%27t register Unicode DLL
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">
       </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">
+      </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">
@@ -1346,6 +1501,8 @@ echo Windows 9x doesn%27t register Unicode DLL
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">
       </PrecompiledHeader>
@@ -1385,18 +1542,22 @@ echo Windows 9x doesn%27t register Unicode DLL
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|x64'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -1450,36 +1611,46 @@ echo Windows 9x doesn%27t register Unicode DLL
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|Win32'">Win32</TargetEnvironment>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">.\RScript.tlb</TypeLibraryName>
+      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">.\RScript.tlb</TypeLibraryName>
+      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">.\RScript.tlb</TypeLibraryName>
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">.\RScript.tlb</TypeLibraryName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">RScript.h</HeaderFileName>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">RScript.h</HeaderFileName>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">RScript.h</HeaderFileName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">RScript.h</HeaderFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">RScript_i.c</InterfaceIdentifierFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">RScript_i.c</InterfaceIdentifierFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">RScript_i.c</InterfaceIdentifierFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">RScript_i.c</InterfaceIdentifierFileName>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">Win32</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">Win32</TargetEnvironment>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">Win32</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">Win32</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">Win32</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">X64</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">X64</TargetEnvironment>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">X64</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">X64</TargetEnvironment>
       <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">X64</TargetEnvironment>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">RUBY_2_1</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">RUBY_2_1</PreprocessorDefinitions>
     </Midl>
   </ItemGroup>
   <ItemGroup>
@@ -1496,10 +1667,12 @@ echo Windows 9x doesn%27t register Unicode DLL
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
@@ -1518,10 +1691,12 @@ echo Windows 9x doesn%27t register Unicode DLL
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Ruby2.1 Unicode RelMinDependency|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Ruby 2.2 Unicode RelMinDependency|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release MinDependency 64|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode 64 Release Mindependency|x64'">true</ExcludedFromBuild>
     </ClInclude>

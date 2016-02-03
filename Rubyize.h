@@ -31,7 +31,7 @@ class ATL_NO_VTABLE CRubyize :
 #ifndef __IRubyWrapper_INTERFACE_DEFINED__
 	public IDispatchImpl<IRubyize, &IID_IRubyize, &LIBID_GRSCRIPTLib>
 #else
-	public IDispatchImpl<IRubyize, &IID_IRubyize, &LIBID_RSCRIPTLib>
+	public IDispatchImpl<IRubyize, &IID_IRubyize, &LIBID_RSCRIPTLib, 2, 0>
 #endif
 {
 public:

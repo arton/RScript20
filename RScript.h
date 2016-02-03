@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Jan 01 13:16:25 2014
+/* at Wed Feb 03 23:31:52 2016
  */
 /* Compiler settings for RScript.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -126,7 +126,7 @@ EXTERN_C const IID IID_IRubyEngine;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("1AEE0BE2-04AC-11d4-8EA8-0000F45A3C05")
+    MIDL_INTERFACE("B3B9ABD7-A7F9-4EC8-9181-B8876A8B8D86")
     IRubyEngine : public IUnknown
     {
     public:
@@ -166,7 +166,7 @@ EXTERN_C const IID IID_IRubyEngine;
         virtual HRESULT STDMETHODCALLTYPE GetRubyize( void) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE GetModule( 
-            /* [retval][out] */ unsigned long *pResult) = 0;
+            /* [retval][out] */ unsigned __int3264 *pResult) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE DisconnectObjects( void) = 0;
         
@@ -241,7 +241,7 @@ EXTERN_C const IID IID_IRubyEngine;
         
         HRESULT ( STDMETHODCALLTYPE *GetModule )( 
             IRubyEngine * This,
-            /* [retval][out] */ unsigned long *pResult);
+            /* [retval][out] */ unsigned __int3264 *pResult);
         
         HRESULT ( STDMETHODCALLTYPE *DisconnectObjects )( 
             IRubyEngine * This);
@@ -339,39 +339,39 @@ EXTERN_C const IID IID_IRubyWrapper;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("66D56EE1-0249-11D4-8EA4-0000F45A3C05")
+    MIDL_INTERFACE("BAF4A404-E824-4A95-8AD0-5BC74981F8A5")
     IRubyWrapper : public IUnknown
     {
     public:
         virtual HRESULT STDMETHODCALLTYPE rb_intern( 
             /* [string][in] */ unsigned char *name,
-            /* [out] */ unsigned long *pid) = 0;
+            /* [out] */ unsigned __int3264 *pid) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE rb_module_new( 
-            /* [in] */ unsigned long parent,
-            /* [out] */ unsigned long *p) = 0;
+            /* [in] */ unsigned __int3264 parent,
+            /* [out] */ unsigned __int3264 *p) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE SearchMethod( 
-            /* [in] */ unsigned long val,
+            /* [in] */ unsigned __int3264 val,
             /* [string][in] */ unsigned char *pName,
             /* [out] */ DISPID *pDispID) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE rb_invoke( 
             /* [in] */ IRubyEngine *pengine,
-            /* [in] */ unsigned long Module,
-            /* [in] */ unsigned long func,
+            /* [in] */ unsigned __int3264 Module,
+            /* [in] */ unsigned __int3264 func,
             /* [in] */ DISPPARAMS *pDispParams,
             /* [unique][out][in] */ VARIANT *pVarResult,
             /* [out] */ IActiveScriptError **ppError) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE SearchClass( 
             /* [string][in] */ unsigned char *pName,
-            /* [out] */ unsigned long *pval) = 0;
+            /* [out] */ unsigned __int3264 *pval) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE rb_funcall_with_string2( 
             /* [in] */ IRubyEngine *pengine,
-            /* [in] */ unsigned long val,
-            /* [in] */ unsigned long id,
+            /* [in] */ unsigned __int3264 val,
+            /* [in] */ unsigned __int3264 id,
             /* [in] */ long line,
             /* [in] */ long cb,
             /* [size_is][in] */ unsigned char *p,
@@ -381,11 +381,11 @@ EXTERN_C const IID IID_IRubyWrapper;
         
         virtual HRESULT STDMETHODCALLTYPE RegisterObject( 
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module) = 0;
+            /* [in] */ unsigned __int3264 Module) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE UnregisterObject( 
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module) = 0;
+            /* [in] */ unsigned __int3264 Module) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE Disconnect( 
             /* [in] */ IRubyEngine *pengin) = 0;
@@ -395,7 +395,7 @@ EXTERN_C const IID IID_IRubyWrapper;
         
         virtual HRESULT STDMETHODCALLTYPE DefineConstant( 
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module,
+            /* [in] */ unsigned __int3264 Module,
             /* [in] */ VARIANT *pVar,
             /* [in] */ IRubyEngine *pengine) = 0;
         
@@ -422,24 +422,24 @@ EXTERN_C const IID IID_IRubyWrapper;
         HRESULT ( STDMETHODCALLTYPE *rb_intern )( 
             IRubyWrapper * This,
             /* [string][in] */ unsigned char *name,
-            /* [out] */ unsigned long *pid);
+            /* [out] */ unsigned __int3264 *pid);
         
         HRESULT ( STDMETHODCALLTYPE *rb_module_new )( 
             IRubyWrapper * This,
-            /* [in] */ unsigned long parent,
-            /* [out] */ unsigned long *p);
+            /* [in] */ unsigned __int3264 parent,
+            /* [out] */ unsigned __int3264 *p);
         
         HRESULT ( STDMETHODCALLTYPE *SearchMethod )( 
             IRubyWrapper * This,
-            /* [in] */ unsigned long val,
+            /* [in] */ unsigned __int3264 val,
             /* [string][in] */ unsigned char *pName,
             /* [out] */ DISPID *pDispID);
         
         HRESULT ( STDMETHODCALLTYPE *rb_invoke )( 
             IRubyWrapper * This,
             /* [in] */ IRubyEngine *pengine,
-            /* [in] */ unsigned long Module,
-            /* [in] */ unsigned long func,
+            /* [in] */ unsigned __int3264 Module,
+            /* [in] */ unsigned __int3264 func,
             /* [in] */ DISPPARAMS *pDispParams,
             /* [unique][out][in] */ VARIANT *pVarResult,
             /* [out] */ IActiveScriptError **ppError);
@@ -447,13 +447,13 @@ EXTERN_C const IID IID_IRubyWrapper;
         HRESULT ( STDMETHODCALLTYPE *SearchClass )( 
             IRubyWrapper * This,
             /* [string][in] */ unsigned char *pName,
-            /* [out] */ unsigned long *pval);
+            /* [out] */ unsigned __int3264 *pval);
         
         HRESULT ( STDMETHODCALLTYPE *rb_funcall_with_string2 )( 
             IRubyWrapper * This,
             /* [in] */ IRubyEngine *pengine,
-            /* [in] */ unsigned long val,
-            /* [in] */ unsigned long id,
+            /* [in] */ unsigned __int3264 val,
+            /* [in] */ unsigned __int3264 id,
             /* [in] */ long line,
             /* [in] */ long cb,
             /* [size_is][in] */ unsigned char *p,
@@ -464,12 +464,12 @@ EXTERN_C const IID IID_IRubyWrapper;
         HRESULT ( STDMETHODCALLTYPE *RegisterObject )( 
             IRubyWrapper * This,
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module);
+            /* [in] */ unsigned __int3264 Module);
         
         HRESULT ( STDMETHODCALLTYPE *UnregisterObject )( 
             IRubyWrapper * This,
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module);
+            /* [in] */ unsigned __int3264 Module);
         
         HRESULT ( STDMETHODCALLTYPE *Disconnect )( 
             IRubyWrapper * This,
@@ -482,7 +482,7 @@ EXTERN_C const IID IID_IRubyWrapper;
         HRESULT ( STDMETHODCALLTYPE *DefineConstant )( 
             IRubyWrapper * This,
             /* [string][in] */ unsigned char *pName,
-            /* [in] */ unsigned long Module,
+            /* [in] */ unsigned __int3264 Module,
             /* [in] */ VARIANT *pVar,
             /* [in] */ IRubyEngine *pengine);
         
@@ -833,7 +833,7 @@ EXTERN_C const CLSID CLSID_RubyScript;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("5FAA1692-10F7-4208-9E0B-92753C3F6D4C")
+class DECLSPEC_UUID("456A3763-90A4-4F2A-BFF1-4B773C1056EC")
 RubyScript;
 #endif
 
@@ -841,7 +841,7 @@ EXTERN_C const CLSID CLSID_RubyWrapper;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("8DA7117D-882E-4E29-889C-F31BED9D78CC")
+class DECLSPEC_UUID("FEB29CB6-DBE8-4A69-B29C-7642001829B7")
 RubyWrapper;
 #endif
 
@@ -849,7 +849,7 @@ EXTERN_C const CLSID CLSID_Rubyize;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("CB567E39-E753-4A60-A924-EE1C1538A971")
+class DECLSPEC_UUID("0BCFF05A-C2BF-4CB2-A778-3428A8E85A21")
 Rubyize;
 #endif
 #endif /* __RSCRIPTLib_LIBRARY_DEFINED__ */

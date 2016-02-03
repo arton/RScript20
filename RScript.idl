@@ -16,14 +16,20 @@ import "activscp.idl";
 #define CLSID_RUBYWRAPPER uuid(8DA7117D-882E-4E29-889C-F31BED9D78CC)
 #define CLSID_RUBYIZE uuid(CB567E39-E753-4A60-A924-EE1C1538A971)
 #else
+#if defined(RUBY_2_2)
+#define CLSID_RUBYSCRIPT  uuid(456A3763-90A4-4F2A-BFF1-4B773C1056EC)
+#define CLSID_RUBYWRAPPER uuid(FEB29CB6-DBE8-4A69-B29C-7642001829B7)
+#define CLSID_RUBYIZE  uuid(0BCFF05A-C2BF-4CB2-A778-3428A8E85A21)
+#else
 #define CLSID_RUBYSCRIPT uuid(5C876DC5-499E-444D-8CBE-E4F7B4CF34D5)
 #define CLSID_RUBYWRAPPER uuid(38DBE621-054C-4a2e-A993-2B05CECFCB71)
 #define CLSID_RUBYIZE uuid(275E45EA-C1BD-44A2-90CC-9F3ABFDFD213)
 #endif
+#endif
 
 [
 	object,
-	uuid(1AEE0BE2-04AC-11d4-8EA8-0000F45A3C05),
+	uuid(B3B9ABD7-A7F9-4EC8-9181-B8876A8B8D86),
 	pointer_default(unique)
 ]
 interface IRubyEngine : IUnknown
@@ -40,30 +46,30 @@ interface IRubyEngine : IUnknown
 	HRESULT ClearModuleObject();
 	HRESULT SetRubyize([in]boolean f);
 	HRESULT GetRubyize();
-	HRESULT GetModule([out, retval]unsigned long* pResult);
+	HRESULT GetModule([out, retval]unsigned __int3264* pResult);
 	HRESULT DisconnectObjects();
 	HRESULT DefineGlobalObject();
 };
 
 [
 	object,
-	uuid(66D56EE1-0249-11D4-8EA4-0000F45A3C05),
+	uuid(BAF4A404-E824-4A95-8AD0-5BC74981F8A5),
 	helpstring("IRubyWrapper Interface"),
 	pointer_default(unique)
 ]
 interface IRubyWrapper : IUnknown
 {
-	HRESULT rb_intern([in, string]char* name, [out]unsigned long* pid);
-	HRESULT rb_module_new([in]unsigned long parent, [out]unsigned long* p);
-	HRESULT SearchMethod([in]unsigned long val, [in, string]char* pName, [out]DISPID* pDispID);
-	HRESULT rb_invoke([in]IRubyEngine* pengine, [in]unsigned long Module, [in]unsigned long func, [in]DISPPARAMS* pDispParams, [in, out, unique]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
-	HRESULT SearchClass([in, string]char* pName, [out]unsigned long* pval);
-	HRESULT rb_funcall_with_string2([in]IRubyEngine* pengine, [in]unsigned long val, [in]unsigned long id, [in]long line, [in]long cb, [in, size_is(cb)]char* p, [in]boolean TraceRequired, [out]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
-	HRESULT RegisterObject([in, string]char* pName, [in]unsigned long Module);
-	HRESULT UnregisterObject([in, string]char* pName, [in]unsigned long Module);
+	HRESULT rb_intern([in, string]char* name, [out]unsigned __int3264* pid);
+	HRESULT rb_module_new([in]unsigned __int3264 parent, [out]unsigned __int3264* p);
+	HRESULT SearchMethod([in]unsigned __int3264 val, [in, string]char* pName, [out]DISPID* pDispID);
+	HRESULT rb_invoke([in]IRubyEngine* pengine, [in]unsigned __int3264 Module, [in]unsigned __int3264 func, [in]DISPPARAMS* pDispParams, [in, out, unique]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
+	HRESULT SearchClass([in, string]char* pName, [out]unsigned __int3264* pval);
+	HRESULT rb_funcall_with_string2([in]IRubyEngine* pengine, [in]unsigned __int3264 val, [in]unsigned __int3264 id, [in]long line, [in]long cb, [in, size_is(cb)]char* p, [in]boolean TraceRequired, [out]VARIANT* pVarResult, [out]IActiveScriptError** ppError);
+	HRESULT RegisterObject([in, string]char* pName, [in]unsigned __int3264 Module);
+	HRESULT UnregisterObject([in, string]char* pName, [in]unsigned __int3264 Module);
 	HRESULT Disconnect([in]IRubyEngine* pengin);
 	HRESULT DefineGlobalObject([in]IRubyEngine* pengine);
-	HRESULT DefineConstant([in, string]char* pName, [in]unsigned long Module, [in]VARIANT* pVar, [in]IRubyEngine* pengine);
+	HRESULT DefineConstant([in, string]char* pName, [in]unsigned __int3264 Module, [in]VARIANT* pVar, [in]IRubyEngine* pengine);
 };
 
 [

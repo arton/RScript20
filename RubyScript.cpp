@@ -85,7 +85,7 @@ HRESULT STDMETHODCALLTYPE CRubyScript::GetRubyize( void)
 }
 
 HRESULT STDMETHODCALLTYPE CRubyScript::GetModule( 
-            /* [retval][out] */ unsigned long __RPC_FAR *pResult)
+            /* [retval][out] */ unsigned __int3264 *pResult)
 {
 	if (!pResult) return E_POINTER;
 	*pResult = m_valueModule;
@@ -272,7 +272,7 @@ HRESULT STDMETHODCALLTYPE CRubyScript::Clone(
 		else
 		{
 			VALUE newmod = Qnil;
-			m_pWrapper->rb_module_new(m_valueModule, (DWORD*)&newmod);
+			m_pWrapper->rb_module_new(m_valueModule, reinterpret_cast<PUINT_PTR>(&newmod));
 			p->setModule(newmod);
 			p->CopyNamedItem(m_mapItem);
 			p->CopyPersistent(m_nStartLinePersistent, m_strScriptPersistent);
@@ -396,7 +396,7 @@ HRESULT CRubyScript::InternalGetScriptDispatch(LPCOLESTR pstrItemName, IDispatch
 	HRESULT hr = S_FALSE;
 	*ppdisp = NULL;
 	USES_CONVERSION;
-	unsigned long val = Qnil;
+	VALUE val = Qnil;
 	RubyObjMapIter it = m_mapObj.find(pstrItemName);
 	if (it != m_mapObj.end())
 	{
@@ -405,7 +405,7 @@ HRESULT CRubyScript::InternalGetScriptDispatch(LPCOLESTR pstrItemName, IDispatch
 	}
 	else
 	{
-		hr = m_pWrapper->SearchClass(reinterpret_cast<LPBYTE>(W2A(pstrItemName)), &val);
+		hr = m_pWrapper->SearchClass(reinterpret_cast<LPBYTE>(W2A(pstrItemName)), reinterpret_cast<UINT_PTR*>(&val));
 		if (hr == S_OK)
 		{
 			if (val != Qnil)
@@ -637,7 +637,7 @@ void CRubyScript::MakeScope()
 	char sz[16];
 	if (m_valueModule == Qnil)
 	{
-		m_pWrapper->rb_module_new(Qnil, (DWORD*)&m_valueModule);
+		m_pWrapper->rb_module_new(Qnil, reinterpret_cast<PUINT_PTR>(&m_valueModule));
 		wsprintfA(sz, "X%08X", m_valueModule);
 		m_pWrapper->RegisterObject(reinterpret_cast<LPBYTE>(sz), m_valueModule);
 	}
