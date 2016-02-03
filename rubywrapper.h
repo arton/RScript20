@@ -77,61 +77,61 @@ END_COM_MAP()
 
 // IRubyWrapper
 public:
-	HRESULT STDMETHODCALLTYPE rb_intern( 
-            /* [string][in] */ unsigned char __RPC_FAR *name,
-            /* [out] */ unsigned long __RPC_FAR *pid);
+        HRESULT STDMETHODCALLTYPE rb_intern( 
+            /* [string][in] */ unsigned char *name,
+            /* [out] */ unsigned __int3264 *pid);
         
-	HRESULT STDMETHODCALLTYPE rb_module_new( 
-            /* [in] */ unsigned long parent,
-            /* [out] */ unsigned long __RPC_FAR *p);
+        HRESULT STDMETHODCALLTYPE rb_module_new( 
+            /* [in] */ unsigned __int3264 parent,
+            /* [out] */ unsigned __int3264 *p);
         
-	HRESULT STDMETHODCALLTYPE SearchMethod( 
-            /* [in] */ unsigned long val,
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [out] */ DISPID __RPC_FAR *pDispID);
-
-	HRESULT STDMETHODCALLTYPE rb_invoke( 
-            /* [in] */ IRubyEngine* pengine,
-            /* [in] */ unsigned long func,
-            /* [in] */ unsigned long module,
-            /* [out][in] */ DISPPARAMS __RPC_FAR *pDispParams,
-            /* [out] */ VARIANT __RPC_FAR *pVarResult,
-            /* [out] */ IActiveScriptError __RPC_FAR *__RPC_FAR *ppError);
-
-	HRESULT STDMETHODCALLTYPE SearchClass( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [out] */ unsigned long __RPC_FAR *pval);
-
-	HRESULT STDMETHODCALLTYPE rb_funcall_with_string2( 
-            /* [in] */ IRubyEngine __RPC_FAR *pengine,
-            /* [in] */ unsigned long val,
-            /* [in] */ unsigned long id,
+        HRESULT STDMETHODCALLTYPE SearchMethod( 
+            /* [in] */ unsigned __int3264 val,
+            /* [string][in] */ unsigned char *pName,
+            /* [out] */ DISPID *pDispID);
+        
+        HRESULT STDMETHODCALLTYPE rb_invoke( 
+            /* [in] */ IRubyEngine *pengine,
+            /* [in] */ unsigned __int3264 Module,
+            /* [in] */ unsigned __int3264 func,
+            /* [in] */ DISPPARAMS *pDispParams,
+            /* [unique][out][in] */ VARIANT *pVarResult,
+            /* [out] */ IActiveScriptError **ppError);
+        
+        HRESULT STDMETHODCALLTYPE SearchClass( 
+            /* [string][in] */ unsigned char *pName,
+            /* [out] */ unsigned __int3264 *pval);
+        
+        HRESULT STDMETHODCALLTYPE rb_funcall_with_string2( 
+            /* [in] */ IRubyEngine *pengine,
+            /* [in] */ unsigned __int3264 val,
+            /* [in] */ unsigned __int3264 id,
             /* [in] */ long line,
             /* [in] */ long cb,
-            /* [size_is][in] */ unsigned char __RPC_FAR *p,
+            /* [size_is][in] */ unsigned char *p,
             /* [in] */ boolean TraceRequired,
-            /* [out] */ VARIANT __RPC_FAR *pVarResult,
-            /* [out] */ IActiveScriptError __RPC_FAR *__RPC_FAR *ppError);
-
-	HRESULT STDMETHODCALLTYPE RegisterObject( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module);
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ IActiveScriptError **ppError);
         
-	HRESULT STDMETHODCALLTYPE UnregisterObject( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module);
-
-	HRESULT STDMETHODCALLTYPE Disconnect(
-	            /* [in] */ IRubyEngine __RPC_FAR *pengine);
-
-	HRESULT STDMETHODCALLTYPE DefineGlobalObject( 
-            /* [in] */ IRubyEngine __RPC_FAR *pengine);
-
-	HRESULT STDMETHODCALLTYPE DefineConstant( 
-            /* [string][in] */ unsigned char __RPC_FAR *pName,
-            /* [in] */ unsigned long Module,
-            /* [in] */ VARIANT __RPC_FAR *pVar,
-            /* [in] */ IRubyEngine __RPC_FAR *pengine);
+        HRESULT STDMETHODCALLTYPE RegisterObject( 
+            /* [string][in] */ unsigned char *pName,
+            /* [in] */ unsigned __int3264 Module);
+        
+        HRESULT STDMETHODCALLTYPE UnregisterObject( 
+            /* [string][in] */ unsigned char *pName,
+            /* [in] */ unsigned __int3264 Module);
+        
+        HRESULT STDMETHODCALLTYPE Disconnect( 
+            /* [in] */ IRubyEngine *pengin);
+        
+        HRESULT STDMETHODCALLTYPE DefineGlobalObject( 
+            /* [in] */ IRubyEngine *pengine);
+        
+        HRESULT STDMETHODCALLTYPE DefineConstant( 
+            /* [string][in] */ unsigned char *pName,
+            /* [in] */ unsigned __int3264 Module,
+            /* [in] */ VARIANT *pVar,
+            /* [in] */ IRubyEngine *pengine);
 private:
 	UINT m_uiQuitTimer;
 	VALUE m_valList;
