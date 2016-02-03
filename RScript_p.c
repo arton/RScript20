@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Jan 01 13:16:25 2014
+/* at Wed Feb 03 23:31:52 2016
  */
 /* Compiler settings for RScript.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -49,7 +49,7 @@
 
 #include "RScript.h"
 
-#define TYPE_FORMAT_STRING_SIZE   1273                              
+#define TYPE_FORMAT_STRING_SIZE   1291                              
 #define PROC_FORMAT_STRING_SIZE   1057                              
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
@@ -790,7 +790,7 @@ static const RScript_MIDL_PROC_FORMAT_STRING RScript__MIDL_ProcFormatString =
 
 /* 786 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 788 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 790 */	NdrFcShort( 0x5e ),	/* Type Offset=94 */
+/* 790 */	NdrFcShort( 0x4e0 ),	/* Type Offset=1248 */
 
 	/* Parameter val */
 
@@ -824,7 +824,7 @@ static const RScript_MIDL_PROC_FORMAT_STRING RScript__MIDL_ProcFormatString =
 
 /* 816 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
 /* 818 */	NdrFcShort( 0x18 ),	/* x86 Stack size/offset = 24 */
-/* 820 */	NdrFcShort( 0x4e4 ),	/* Type Offset=1252 */
+/* 820 */	NdrFcShort( 0x4f6 ),	/* Type Offset=1270 */
 
 	/* Parameter TraceRequired */
 
@@ -947,7 +947,7 @@ static const RScript_MIDL_PROC_FORMAT_STRING RScript__MIDL_ProcFormatString =
 
 /* 954 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 956 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 958 */	NdrFcShort( 0x5e ),	/* Type Offset=94 */
+/* 958 */	NdrFcShort( 0x4e0 ),	/* Type Offset=1248 */
 
 	/* Return value */
 
@@ -977,7 +977,7 @@ static const RScript_MIDL_PROC_FORMAT_STRING RScript__MIDL_ProcFormatString =
 
 /* 990 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 992 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 994 */	NdrFcShort( 0x5e ),	/* Type Offset=94 */
+/* 994 */	NdrFcShort( 0x4e0 ),	/* Type Offset=1248 */
 
 	/* Return value */
 
@@ -1026,7 +1026,7 @@ static const RScript_MIDL_PROC_FORMAT_STRING RScript__MIDL_ProcFormatString =
 
 /* 1044 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 1046 */	NdrFcShort( 0x10 ),	/* x86 Stack size/offset = 16 */
-/* 1048 */	NdrFcShort( 0x5e ),	/* Type Offset=94 */
+/* 1048 */	NdrFcShort( 0x4e0 ),	/* Type Offset=1248 */
 
 	/* Return value */
 
@@ -1126,17 +1126,17 @@ static const RScript_MIDL_TYPE_FORMAT_STRING RScript__MIDL_TypeFormatString =
 /* 94 */	
 			0x2f,		/* FC_IP */
 			0x5a,		/* FC_CONSTANT_IID */
-/* 96 */	NdrFcLong( 0x1aee0be2 ),	/* 451808226 */
-/* 100 */	NdrFcShort( 0x4ac ),	/* 1196 */
-/* 102 */	NdrFcShort( 0x11d4 ),	/* 4564 */
-/* 104 */	0x8e,		/* 142 */
-			0xa8,		/* 168 */
-/* 106 */	0x0,		/* 0 */
-			0x0,		/* 0 */
-/* 108 */	0xf4,		/* 244 */
-			0x5a,		/* 90 */
-/* 110 */	0x3c,		/* 60 */
-			0x5,		/* 5 */
+/* 96 */	NdrFcLong( 0xb3b9abd7 ),	/* -1279677481 */
+/* 100 */	NdrFcShort( 0xa7f9 ),	/* -22535 */
+/* 102 */	NdrFcShort( 0x4ec8 ),	/* 20168 */
+/* 104 */	0x91,		/* 145 */
+			0x81,		/* 129 */
+/* 106 */	0xb8,		/* 184 */
+			0x87,		/* 135 */
+/* 108 */	0x6a,		/* 106 */
+			0x8b,		/* 139 */
+/* 110 */	0x8d,		/* 141 */
+			0x86,		/* 134 */
 /* 112 */	
 			0x11, 0x0,	/* FC_RP */
 /* 114 */	NdrFcShort( 0x430 ),	/* Offset= 1072 (1186) */
@@ -1907,24 +1907,38 @@ static const RScript_MIDL_TYPE_FORMAT_STRING RScript__MIDL_TypeFormatString =
 /* 1246 */	0xd0,		/* 208 */
 			0x64,		/* 100 */
 /* 1248 */	
+			0x2f,		/* FC_IP */
+			0x5a,		/* FC_CONSTANT_IID */
+/* 1250 */	NdrFcLong( 0xb3b9abd7 ),	/* -1279677481 */
+/* 1254 */	NdrFcShort( 0xa7f9 ),	/* -22535 */
+/* 1256 */	NdrFcShort( 0x4ec8 ),	/* 20168 */
+/* 1258 */	0x91,		/* 145 */
+			0x81,		/* 129 */
+/* 1260 */	0xb8,		/* 184 */
+			0x87,		/* 135 */
+/* 1262 */	0x6a,		/* 106 */
+			0x8b,		/* 139 */
+/* 1264 */	0x8d,		/* 141 */
+			0x86,		/* 134 */
+/* 1266 */	
 			0x11, 0x0,	/* FC_RP */
-/* 1250 */	NdrFcShort( 0x2 ),	/* Offset= 2 (1252) */
-/* 1252 */	
+/* 1268 */	NdrFcShort( 0x2 ),	/* Offset= 2 (1270) */
+/* 1270 */	
 			0x1b,		/* FC_CARRAY */
 			0x0,		/* 0 */
-/* 1254 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 1256 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 1272 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 1274 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
-/* 1258 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
-/* 1260 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
-/* 1262 */	0x2,		/* FC_CHAR */
+/* 1276 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
+/* 1278 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
+/* 1280 */	0x2,		/* FC_CHAR */
 			0x5b,		/* FC_END */
-/* 1264 */	
+/* 1282 */	
 			0x11, 0x4,	/* FC_RP [alloced_on_stack] */
-/* 1266 */	NdrFcShort( 0xffce ),	/* Offset= -50 (1216) */
-/* 1268 */	
+/* 1284 */	NdrFcShort( 0xffbc ),	/* Offset= -68 (1216) */
+/* 1286 */	
 			0x11, 0x0,	/* FC_RP */
-/* 1270 */	NdrFcShort( 0xff80 ),	/* Offset= -128 (1142) */
+/* 1288 */	NdrFcShort( 0xff6e ),	/* Offset= -146 (1142) */
 
 			0x0
         }
@@ -1949,7 +1963,7 @@ static const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 
 
 /* Object interface: IRubyEngine, ver. 0.0,
-   GUID={0x1AEE0BE2,0x04AC,0x11d4,{0x8E,0xA8,0x00,0x00,0xF4,0x5A,0x3C,0x05}} */
+   GUID={0xB3B9ABD7,0xA7F9,0x4EC8,{0x91,0x81,0xB8,0x87,0x6A,0x8B,0x8D,0x86}} */
 
 #pragma code_seg(".orpc")
 static const unsigned short IRubyEngine_FormatStringOffsetTable[] =
@@ -2027,7 +2041,7 @@ const CInterfaceStubVtbl _IRubyEngineStubVtbl =
 
 
 /* Object interface: IRubyWrapper, ver. 0.0,
-   GUID={0x66D56EE1,0x0249,0x11D4,{0x8E,0xA4,0x00,0x00,0xF4,0x5A,0x3C,0x05}} */
+   GUID={0xBAF4A404,0xE824,0x4A95,{0x8A,0xD0,0x5B,0xC7,0x49,0x81,0xF8,0xA5}} */
 
 #pragma code_seg(".orpc")
 static const unsigned short IRubyWrapper_FormatStringOffsetTable[] =
